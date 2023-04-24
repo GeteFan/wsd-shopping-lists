@@ -6,6 +6,8 @@ WORKDIR /app
 
 COPY . .
 
+COPY /shopping-lists .
+
 RUN deno cache deps.js
 
 CMD [ "run", "--unstable", "--watch", "--allow-net", "--allow-read", "--allow-env", "--no-check", "app.js" ]
