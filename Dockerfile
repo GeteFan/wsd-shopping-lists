@@ -2,9 +2,9 @@ FROM denoland/deno:alpine-1.29.2
 
 EXPOSE 7777
 
-WORKDIR /app/shopping-lists
+WORKDIR /app
 
-COPY /shopping-lists/deps.js .
+COPY /shopping-lists .
 
 RUN deno cache deps.js
 
