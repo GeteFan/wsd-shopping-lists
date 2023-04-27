@@ -5,7 +5,7 @@ let sql;
 if (Deno.env.get("DATABASE_URL")) {
   sql = postgres(Deno.env.get("DATABASE_URL"));
   await sql`INSERT INTO shopping-lists (name) VALUES ("name")`;
-  return await sql`SELECT * FROM shopping_lists WHERE active = true`;
+  console.log(await sql`SELECT * FROM shopping_lists WHERE active = true`);
 } else {
   console.log("not adfaf");
   sql = postgres({});
