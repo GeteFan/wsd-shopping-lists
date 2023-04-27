@@ -9,3 +9,8 @@
 
 <h2>Active lists</h2>
 
+<ul>
+<% it.shopping_lists.forEach((task) => { %>
+  <li><%= task.name %></li>
+<% }); %>
+</ul>
