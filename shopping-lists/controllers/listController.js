@@ -31,7 +31,7 @@ const viewMain = async (request) => {
 
 const viewLists = async (request) => {
   const data = {
-    tasks: await listService.findAllActiveLists(),
+    shopping_lists: await listService.findAllActiveLists(),
   };
 
   return new Response(await renderFile("lists.eta", data), responseDetails);
