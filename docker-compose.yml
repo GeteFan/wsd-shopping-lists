@@ -20,7 +20,7 @@ services:
     image: "postgres:13.4"
     restart: "unless-stopped"
     env_file:
-        - project.env
+      - project.env
 
   flyway:
     image: flyway/flyway:9.11.0-alpine
