@@ -9,21 +9,25 @@ const responseDetails = {
 const addItem = async (request) => {
     const url = new URL(request.url);
     const urlParts = url.pathname.split("/");
+    const listId = urlParts[2];
 
     const formData = await request.formData();
     const name = formData.get("name");
+    
+    await itemService.create(name, listId);
   
-    await itemService.create(name, urlParts[2]);
-  
-    return requestUtils.redirectTo("/lists");
+    return requestUtils.redirectTo("/lists/`${ listId }`");
 };
 
-const viewLists = async (request) => {
-    const data = {
-      shopping_lists: await listService.findAllActiveLists(),
-    };
+const collectItem = async (request) => {
+    const url = new URL(request.url);
+    const urlParts = url.pathname.split("/");
+    const listId = urlParts[2];
+    const itemId = urlParts[3];
+
+    await itemService.collectItem(itemId);
   
-    return new Response(await renderFile("lists.eta", data), responseDetails);
+    return requestUtils.redirectTo("/lists/${ listId }");
 };
 
 const viewListItems = async (request) => {
@@ -34,4 +38,4 @@ const viewListItems = async (request) => {
     return new Response(await renderFile("list.eta", data), responseDetails);
 };
 
-export { addItem, viewLists, viewListItems };
+export { addItem, collectItem, viewListItems };
