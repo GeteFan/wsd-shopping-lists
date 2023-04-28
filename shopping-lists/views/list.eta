@@ -12,9 +12,9 @@
 <ul>
 <% it.list_items.forEach((item) => { %>
   <li>
-  <%= item.name %>
+  <%= item.name %><%= item.shopping_list_id %>
 
-  <form method="POST" action="/lists/<%= item.shopping_list_id %>">
+  <form method="POST" action="/lists/<%= item.shopping_list_id %>/<%= item.id %>">
     <input type="submit" value="Collect" />
   </form>
 
