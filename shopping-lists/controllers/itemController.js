@@ -7,10 +7,13 @@ const responseDetails = {
 };
 
 const addItem = async (request) => {
+    const url = new URL(request.url);
+    const urlParts = url.pathname.split("/");
+
     const formData = await request.formData();
     const name = formData.get("name");
   
-    await itemService.create(name);
+    await itemService.create(name, urlParts[1]);
   
     return requestUtils.redirectTo("/lists");
 };

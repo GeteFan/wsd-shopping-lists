@@ -1,7 +1,7 @@
 import { sql } from "../database/database.js";
 
-const create = async (name) => {
-  await sql`INSERT INTO shopping_list_items (name) VALUES (${ name })`;
+const create = async (name, shoppingListId) => {
+  await sql`INSERT INTO shopping_list_items (name, shopping_list_id) VALUES (${ name }, ${ shoppingListId })`;
 };
 
 const findAllNonCollected = async () => {
