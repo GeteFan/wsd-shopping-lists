@@ -5,6 +5,6 @@ const redirectTo = (path) => {
         "Location": path,
       },
     });
-  };
+};
   
-  export { redirectTo };
+export { redirectTo };
