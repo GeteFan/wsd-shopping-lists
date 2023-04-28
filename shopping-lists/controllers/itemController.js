@@ -16,7 +16,7 @@ const addItem = async (request) => {
     
     await itemService.create(name, listId);
   
-    return requestUtils.redirectTo("/lists/`${ listId }`");
+    return requestUtils.redirectTo(`/lists/${ listId }`);
 };
 
 const collectItem = async (request) => {
@@ -27,7 +27,7 @@ const collectItem = async (request) => {
 
     await itemService.collectItem(itemId);
   
-    return requestUtils.redirectTo("/lists/${ listId }");
+    return requestUtils.redirectTo(`/lists/${ listId }`);
 };
 
 const viewListItems = async (request) => {
