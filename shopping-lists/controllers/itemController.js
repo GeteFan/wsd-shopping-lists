@@ -13,7 +13,7 @@ const addItem = async (request) => {
     const formData = await request.formData();
     const name = formData.get("name");
   
-    await itemService.create(name, urlParts[1]);
+    await itemService.create(name, urlParts[2]);
   
     return requestUtils.redirectTo("/lists");
 };
