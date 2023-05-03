@@ -31,8 +31,12 @@ const collectItem = async (request) => {
 };
 
 const viewListItems = async (request) => {
+    const url = new URL(request.url);
+    const urlParts = url.pathname.split("/");
+    const listId = urlParts[2];
+
     const data = {
-        list_items: await itemService.findAllNonCollected(),
+        list_items: await itemService.findAllNonCollected(listId),
     };
   
     return new Response(await renderFile("list.eta", data), responseDetails);

@@ -1,5 +1,7 @@
 <% layout("./layouts/layout.eta") %>
 
+<h2><a href="/lists"> <-Back</a></h2>
+
 <h2>Add an item</h2>
 
 <form method="POST">
