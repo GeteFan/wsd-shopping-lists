@@ -16,13 +16,15 @@ const handleRequest = async (request) => {
     return await listController.addList(request);
   } else if (url.pathname === "/lists" && request.method === "GET") {
     return await listController.viewLists(request);
+  } else if (url.pathname.match("lists/[0-9]+/deactivate") && request.method === "POST") {
+    return await listController.deactivateList(request);
   } else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
     return await itemController.viewListItems(request);
+  } else if (url.pathname.match("lists/[0-9]+/items" ) && request.method === "POST") {
+    return await itemController.addItem(request);
   } else if (url.pathname.match("lists/[0-9]+/[0-9]+/collect") && request.method === "POST") {
     console.log("collect");
     return await itemController.collectItem(request);
-  } else if (url.pathname.match("lists/[0-9]+") && request.method === "POST") {
-    return await itemController.addItem(request);
   } else {
     return new Response("Not found", { status: 404 });
   }

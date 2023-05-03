@@ -15,6 +15,16 @@ const addList = async (request) => {
   return requestUtils.redirectTo("/lists");
 };
 
+const deactivateList = async (request) => {
+  const url = new URL(request.url);
+  const urlParts = url.pathname.split("/");
+  const listId = urlParts[2];
+
+  await listService.deactivateList(listId);
+
+  return requestUtils.redirectTo(`/lists`);
+};
+
 const viewMain = async (request) => {
   return new Response(await renderFile("main.eta"), responseDetails);
 };
@@ -27,4 +37,4 @@ const viewLists = async (request) => {
   return new Response(await renderFile("lists.eta", data), responseDetails);
 };
 
-export { addList, viewMain, viewLists };
+export { addList, deactivateList, viewMain, viewLists };
