@@ -5,9 +5,9 @@ const create = async (name, shoppingListId) => {
 };
 
 const findAllNonCollected = async (shoppingListId) => {
-    id = shoppingListId;
+    mainListId = shoppingListId;
     notCollected = await sql`SELECT * FROM shopping_list_items WHERE collected = false AND shopping_list_id = ${shoppingListId} `;
-    return { listId: id, nonCollected: notCollected };
+    return { listId: mainListId, nonCollected: notCollected };
 };
 
 const collectItem = async (id) => {
