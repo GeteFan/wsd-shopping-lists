@@ -4,7 +4,7 @@
 
 <h2>Add an item</h2>
 
-<form method="POST" action="/lists/<%= it.list_items.shopping_list_id %>/items">
+<form method="POST" action="/lists/<%= it.list_items.listId %>/items">
   Name: <input type="text" name="name" />
   <input type="submit" value="Add item!" />
 </form>
@@ -12,7 +12,7 @@
 <h2>Non collected items</h2>
 
 <ul>
-<% it.list_items.forEach((item) => { %>
+<% it.list_items.nonCollected.forEach((item) => { %>
   <li>
   <%= item.name %><%= item.shopping_list_id %>
 
