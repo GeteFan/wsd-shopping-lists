@@ -15,10 +15,10 @@ const findAllActiveLists = async () => {
 
 const countAllLists = async () => {
   const number = await sql`SELECT COUNT(*) FROM shopping_lists`;
-  if (number.length == undefined || number.length < 1) {
+  if (number[0].count == undefined || number[0].count < 1) {
     return "No shopping lists yet.";
   } else {
-    return `Shopping lists: ${number.length}`;
+    return `Shopping lists: ${number[0].count}`;
   }
 }
 

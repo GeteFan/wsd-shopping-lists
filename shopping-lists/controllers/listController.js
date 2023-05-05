@@ -26,14 +26,6 @@ const deactivateList = async (request) => {
   return requestUtils.redirectTo(`/lists`);
 };
 
-const viewMain = async (request) => {
-  const data = {
-    shopping_lists: await listService.findAllActiveLists(),
-    list_items: await itemService.countAllItems(),
-  };
-
-  return new Response(await renderFile("main.eta", data), responseDetails);
-};
 
 const viewLists = async (request) => {
   const data = {
