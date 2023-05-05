@@ -5,10 +5,10 @@
 
 <ul>
   <li> 
-    Shopping lists: <% it.shopping_lists[0].count %>
+    Shopping lists: <%= it.shopping_lists[0].count %>
     <% console.log(typeof it.shopping_lists) %>
   </li>
   <li> 
-    Shopping list items: <% console.log(it.list_items[0].count) %>
+    Shopping list items: <%= it.list_items[0].count %>
   </li>
 </ul>
