@@ -5,7 +5,7 @@
 
 <ul>
   <li> 
-    Shopping lists: <%= it.shopping_lists[0].count %>
+    Shopping lists: <% console.log(it.shopping_lists) %>
     <% console.log(typeof it.shopping_lists) %>
   </li>
   <li> 
