@@ -8,6 +8,6 @@
     Shopping lists: <% console.log(Object.keys(it.shopping_lists).length) %>
   </li>
   <li> 
-    Shopping list items: <% it.list_items %>
+    Shopping list items: <% console.log(Object.keys(it.list_items).length) %>
   </li>
 </ul>
