@@ -8,6 +8,6 @@
     Shopping lists: <% console.log(it.shopping_lists) %>
   </li>
   <li> 
-    Shopping list items: <% it.list_items %>
+    Shopping list items: <%= it.list_items %>
   </li>
 </ul>
