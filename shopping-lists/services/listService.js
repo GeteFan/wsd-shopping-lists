@@ -15,7 +15,8 @@ const findAllActiveLists = async () => {
 
 const countAllLists = async () => {
   const number = await sql`SELECT COUNT(*) FROM shopping_lists`;
-  return number;
+  const count = number.rowsOfObjects()[0].count;
+  return count;
 }
 
 export { create, deactivateList, findAllActiveLists, countAllLists }; 
