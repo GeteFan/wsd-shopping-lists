@@ -2,6 +2,7 @@ import { serve } from "https://deno.land/std@0.171.0/http/server.ts";
 import { configure, renderFile } from "https://deno.land/x/eta@v2.0.0/mod.ts";
 import * as listController from "./controllers/listController.js";
 import * as itemController from "./controllers/itemController.js";
+import * as mainController from "./controllers/mainController.js";
 
 configure({
   views: `${Deno.cwd()}/views/`,
@@ -11,7 +12,7 @@ const handleRequest = async (request) => {
   const url = new URL(request.url);
 
   if (url.pathname === "/" && request.method === "GET") {
-    return await listController.viewMain(request);
+    return await mainController.viewMain(request);
   } else if (url.pathname === "/lists" && request.method === "POST") {
     return await listController.addList(request);
   } else if (url.pathname === "/lists" && request.method === "GET") {

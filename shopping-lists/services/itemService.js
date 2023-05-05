@@ -13,6 +13,7 @@ const findAllItems = async (shoppingListId) => {
 const countAllItems = async () => {
     const number = await sql`SELECT COUNT(*) FROM shopping_list_items`;
     if (number[0].count == undefined || number[0].count < 1) {
+      return 0;
     } else {
       return `Shopping list items: ${number[0].count}`;
     }

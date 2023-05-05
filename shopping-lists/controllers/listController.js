@@ -35,4 +35,4 @@ const viewLists = async (request) => {
   return new Response(await renderFile("lists.eta", data), responseDetails);
 };
 
-export { addList, deactivateList, viewMain, viewLists };
+export { addList, deactivateList, viewLists };
