@@ -5,10 +5,9 @@
 
 <ul>
   <li> 
-    Shopping lists: <%= it.shopping_lists.length %>
-    <% console.log(typeof it.shopping_lists) %>
+    <%= it.shopping_lists %>
   </li>
   <li> 
-    Shopping list items: <%= it.list_items[0].count %>
+    <%= it.list_items %>
   </li>
 </ul>
