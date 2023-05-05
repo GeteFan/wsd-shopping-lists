@@ -17,9 +17,14 @@
   <%= item.name %><%= item.shopping_list_id %>
 
   <form method="POST" action="/lists/<%= item.shopping_list_id %>/<%= item.id %>/collect">
-    <input type="submit" value="Collect" />
+    <input type="submit" value="Mark collected!" />
   </form>
 
+  </li>
+<% }); %>
+<% it.list_items.collected.forEach((item) => { %>
+  <li>
+    <del><%= item.name %><%= item.shopping_list_id %></del>
   </li>
 <% }); %>
 </ul>

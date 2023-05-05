@@ -36,7 +36,7 @@ const viewListItems = async (request) => {
     const listId = urlParts[2];
 
     const data = {
-        list_items: await itemService.findAllNonCollected(listId),
+        list_items: await itemService.findAllItems(listId),
     };
   
     return new Response(await renderFile("list.eta", data), responseDetails);
