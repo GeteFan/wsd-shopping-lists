@@ -24,7 +24,7 @@
 <% }); %>
 <% it.list_items.collected.forEach((item) => { %>
   <li>
-    <del><%= item.name %><%= item.shopping_list_id %></del>
+    <del><%= item.name %></del>
   </li>
 <% }); %>
 </ul>
