@@ -12,7 +12,8 @@ const findAllItems = async (shoppingListId) => {
 
 const countAllItems = async () => {
     const number = await sql`SELECT COUNT(*) FROM shopping_list_items`;
-    return number;
+    const count = number.rowsOfObjects()[0].count;
+    return count;
 }
 
 const collectItem = async (id) => {
