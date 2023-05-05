@@ -5,10 +5,10 @@
 
 <ul>
   <li> 
-    Shopping lists: <% console.log(Object.keys(it.shopping_lists).length) %>
+    Shopping lists: <% Object.keys(it.shopping_lists).length %>
     <% console.log(typeof it.shopping_lists) %>
   </li>
   <li> 
-    Shopping list items: <% console.log(Object.keys(it.list_items).length) %>
+    Shopping list items: <% console.log(it.list_items) %>
   </li>
 </ul>
