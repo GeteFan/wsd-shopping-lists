@@ -1,5 +1,6 @@
 import { renderFile } from "https://deno.land/x/eta@v2.0.0/mod.ts";
 import * as listService from "../services/listService.js";
+import * as itemService from "../services/itemService.js";
 import * as requestUtils from "../utils/requestUtils.js";
 
 const responseDetails = {
@@ -26,7 +27,12 @@ const deactivateList = async (request) => {
 };
 
 const viewMain = async (request) => {
-  return new Response(await renderFile("main.eta"), responseDetails);
+  const data = {
+    shopping_lists: await listService.findAllActiveLists(),
+    list_items: await itemService.countAllItems(),
+  };
+
+  return new Response(await renderFile("main.eta", data), responseDetails);
 };
 
 const viewLists = async (request) => {

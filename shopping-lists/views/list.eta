@@ -14,7 +14,7 @@
 <ul>
 <% it.list_items.nonCollected.forEach((item) => { %>
   <li>
-  <%= item.name %><%= item.shopping_list_id %>
+  <%= item.name %>
 
   <form method="POST" action="/lists/<%= item.shopping_list_id %>/<%= item.id %>/collect">
     <input type="submit" value="Mark collected!" />

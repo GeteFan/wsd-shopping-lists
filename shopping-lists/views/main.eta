@@ -2,3 +2,12 @@
 <h2>Shared shopping lists</h2>
 
 <a href="/lists">Lists</a>
+
+<ul>
+  <li> 
+    Shopping lists: <% it.shopping_lists.length %>
+  </li>
+  <li> 
+    Shopping list items: <% it.list_items.size %>
+  </li>
+</ul>
