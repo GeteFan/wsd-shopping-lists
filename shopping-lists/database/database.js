@@ -4,19 +4,10 @@ import { Pool } from "https://deno.land/x/postgres@v0.17.0/mod.ts";
 
 // const client = new Client();
 
-Deno.env.set(
-  "DATABASE_URL",
-  "postgres://roman_moroz_wsd_shopping_lists_user:t8ZYqT9dsf76hHt9Ek9p80MzXhZaqcWV@dpg-cgvsskpeuhlhlbhpjp70-a/roman_moroz_wsd_shopping_lists",
-);
+const DATABASE_URL = "postgres://roman_moroz_wsd_shopping_lists_user:t8ZYqT9dsf76hHt9Ek9p80MzXhZaqcWV@dpg-cgvsskpeuhlhlbhpjp70-a/roman_moroz_wsd_shopping_lists";
 
-const CONCURRENT_CONNECTIONS = 3;
-const connectionPool = new Pool({
-  database: "roman_moroz_wsd_shopping_lists", // Specify the actual database name
-  hostname: "dpg-cgvsskpeuhlhlbhpjp70-a", // Specify the actual hostname
-  password: "t8ZYqT9dsf76hHt9Ek9p80MzXhZaqcWV", // Specify the actual password
-  port: 5432,
-  user: "roman_moroz_wsd_shopping_lists_user", // Specify the actual username
-}, CONCURRENT_CONNECTIONS);
+const CONCURRENT_CONNECTIONS = 2;
+const connectionPool = new Pool(DATABASE_URL, CONCURRENT_CONNECTIONS);
 
 const executeQuery = async (query, params) => {
   const response = {};
