@@ -18,7 +18,7 @@ const databaseCredentials = async (env) => {
 
 
 const CONCURRENT_CONNECTIONS = 2;
-const connectionPool = new Pool(databaseCredentials(env), CONCURRENT_CONNECTIONS);
+const connectionPool = new postgres.Pool(databaseCredentials(env), CONCURRENT_CONNECTIONS);
 
 const executeQuery = async (query, params) => {
   const response = {};
