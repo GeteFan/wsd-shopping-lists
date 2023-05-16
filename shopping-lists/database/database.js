@@ -9,7 +9,7 @@ Deno.env.set(
   "postgres://roman_moroz_wsd_shopping_lists_user:t8ZYqT9dsf76hHt9Ek9p80MzXhZaqcWV@dpg-cgvsskpeuhlhlbhpjp70-a/roman_moroz_wsd_shopping_lists",
 );
 
-const CONCURRENT_CONNECTIONS = 2;
+const CONCURRENT_CONNECTIONS = 3;
 const connectionPool = new Pool({
   database: "roman_moroz_wsd_shopping_lists", // Specify the actual database name
   hostname: "dpg-cgvsskpeuhlhlbhpjp70-a", // Specify the actual hostname

@@ -18,6 +18,7 @@ const findAllActiveLists = async () => {
 
 const countAllLists = async () => {
   const number = await executeQuery("SELECT COUNT(*) FROM shopping_lists;");
+  console.log(number);
   if (number[0].count == undefined || number[0].count < 1) {
     return "No shopping lists yet.";
   } else {
