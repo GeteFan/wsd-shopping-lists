@@ -9,11 +9,7 @@ const env = postgres(Deno.env.get("DATABASE_URL"));
 
 const CONCURRENT_CONNECTIONS = 2;
 const connectionPool = new Pool({
-  database: "database",
-  hostname: "database-p1-3669f4dc-5e14-4733-8b72-2d59122fe97a",
-  password: "password",
-  port: 5432,
-  user: "username",
+  connectionString: "postgres://roman_moroz_wsd_shopping_lists_user:t8ZYqT9dsf76hHt9Ek9p80MzXhZaqcWV@dpg-cgvsskpeuhlhlbhpjp70-a/roman_moroz_wsd_shopping_lists",
 }, CONCURRENT_CONNECTIONS);
 
 const executeQuery = async (query, params) => {
