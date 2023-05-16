@@ -5,24 +5,15 @@ import { Pool } from "https://deno.land/x/postgres@v0.17.0/mod.ts";
 // const client = new Client();
 
 Deno.env.set("DATABASE_URL", "postgres://roman_moroz_wsd_shopping_lists_user:t8ZYqT9dsf76hHt9Ek9p80MzXhZaqcWV@dpg-cgvsskpeuhlhlbhpjp70-a/roman_moroz_wsd_shopping_lists");
-
 const env = postgres(Deno.env.get("DATABASE_URL"));
-
-// const databaseCredentials = async (env) => {
-//   let sql;
-//   if (env) {
-//     sql = env;
-//   } else {
-//     console.log("not adfaf");
-//     sql = {};
-//   }
-//   return sql;
-// };
-
 
 const CONCURRENT_CONNECTIONS = 2;
 const connectionPool = new Pool({
-  connectionString: env,
+  database: "database",
+  hostname: "database-p1-3669f4dc-5e14-4733-8b72-2d59122fe97a",
+  password: "password",
+  port: 5432,
+  user: "username",
 }, CONCURRENT_CONNECTIONS);
 
 const executeQuery = async (query, params) => {
