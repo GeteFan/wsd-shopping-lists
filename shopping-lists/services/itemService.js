@@ -19,7 +19,7 @@ const findAllItems = async (shoppingListId) => {
 
 const countAllItems = async () => {
     const number = await executeQuery("SELECT COUNT(*) FROM shopping_list_items;");
-    const result = log(parseInt(number.rows[0].count));
+    const result = parseInt(number.rows[0].count);
     if (result == undefined || result < 1) {
       return 0;
     } else {
