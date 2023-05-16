@@ -1,17 +1,24 @@
-import { sql } from "../database/database.js";
+import { executeQuery } from "../database/database.js";
 
 const create = async (name, shoppingListId) => {
-  await sql`INSERT INTO shopping_list_items (name, shopping_list_id) VALUES (${ name }, ${ shoppingListId })`;
+  await await executeQuery(
+    "INSERT INTO shopping_list_items (name, shopping_list_id) VALUES ($name , $shoppingListId);",
+    {name: name, shopping_list_id: shoppingListId},
+  );
 };
 
 const findAllItems = async (shoppingListId) => {
-    const notCollected = await sql`SELECT * FROM shopping_list_items WHERE collected = false AND shopping_list_id = ${shoppingListId} ORDER BY name ASC`;
-    const collected = await sql`SELECT * FROM shopping_list_items WHERE collected = true AND shopping_list_id = ${shoppingListId} ORDER BY name ASC`;
+    const notCollected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = false AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
+    {shopping_list_id: shoppingListId},
+    );
+    const collected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = true AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
+    {shopping_list_id: shoppingListId},
+    );
     return { listId: shoppingListId, nonCollected: notCollected, collected: collected };
 };
 
 const countAllItems = async () => {
-    const number = await sql`SELECT COUNT(*) FROM shopping_list_items`;
+    const number = await executeQuery("SELECT COUNT(*) FROM shopping_list_items;");
     if (number[0].count == undefined || number[0].count < 1) {
       return 0;
     } else {
@@ -21,8 +28,9 @@ const countAllItems = async () => {
 
 
 const collectItem = async (id) => {
-    await sql`UPDATE shopping_list_items
-      SET collected = true WHERE id = ${ id }`;
+    await executeQuery("UPDATE shopping_list_items SET collected = true WHERE id = $id;",
+    {id: id},
+    );
 };
 
 export { create, collectItem, findAllItems, countAllItems };
