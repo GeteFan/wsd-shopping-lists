@@ -3,15 +3,15 @@ import { Pool } from "https://deno.land/x/postgres@v0.17.0/mod.ts";
 
 Deno.env.set("DATABASE_URL", "postgres://roman_moroz_wsd_shopping_lists_user:t8ZYqT9dsf76hHt9Ek9p80MzXhZaqcWV@dpg-cgvsskpeuhlhlbhpjp70-a/roman_moroz_wsd_shopping_lists");
 
-const env = "DATABASE_URL";
+const env = Deno.env.get("DATABASE_URL");
 
 const databaseCredentials = async (env) => {
   let sql;
-  if (Deno.env.get(env)) {
-    sql = postgres(Deno.env.get(env));
+  if (env) {
+    sql = env;
   } else {
     console.log("not adfaf");
-    sql = postgres({});
+    sql = {};
   }
   return sql;
 };
