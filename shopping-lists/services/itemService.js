@@ -1,20 +1,21 @@
 import { executeQuery } from "../database/database.js";
 
 const create = async (name, shoppingListId) => {
-  await await executeQuery(
+  await executeQuery(
     "INSERT INTO shopping_list_items (name, shopping_list_id) VALUES ($name , $shoppingListId);",
     {name: name, shopping_list_id: shoppingListId},
   );
 };
 
 const findAllItems = async (shoppingListId) => {
-  console.log("id: " + shoppingListId);
+    console.log("id: " + shoppingListId);
     const notCollected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = false AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
     {shopping_list_id: shoppingListId},
     );
     const collected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = true AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
     {shopping_list_id: shoppingListId},
     );
+    console.log("nc + c: " + notCollected + collected);
     return { listId: shoppingListId, nonCollected: notCollected, collected: collected };
 };
 
