@@ -10,10 +10,10 @@ const create = async (name, shoppingListId) => {
 const findAllItems = async (shoppingListId) => {
     console.log("id: " + shoppingListId);
     const notCollected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = false AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
-    {shopping_list_id: shoppingListId},
+    {shoppingListId: shoppingListId},
     );
     const collected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = true AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
-    {shopping_list_id: shoppingListId},
+    {shoppingListId: shoppingListId},
     );
     console.log("nc + c: " + notCollected.rows + collected.rows);
     return { listId: shoppingListId, nonCollected: notCollected, collected: collected };
