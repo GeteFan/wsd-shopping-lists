@@ -3,19 +3,17 @@ import { executeQuery } from "../database/database.js";
 const create = async (name, shoppingListId) => {
   await executeQuery(
     "INSERT INTO shopping_list_items (name, shopping_list_id) VALUES ($name , $shoppingListId);",
-    {name: name, shopping_list_id: shoppingListId},
+    {name: name, shoppingListId: shoppingListId},
   );
 };
 
 const findAllItems = async (shoppingListId) => {
-    console.log("id: " + shoppingListId);
     const notCollected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = false AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
     {shoppingListId: shoppingListId},
     );
     const collected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = true AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
     {shoppingListId: shoppingListId},
     );
-    console.log("nc + c: " + notCollected.rows + collected.rows);
     return { listId: shoppingListId, nonCollected: notCollected, collected: collected };
 };
 
