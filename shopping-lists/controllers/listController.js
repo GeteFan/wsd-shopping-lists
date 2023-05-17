@@ -30,7 +30,7 @@ const viewLists = async (request) => {
   const data = {
     shopping_lists: await listService.findAllActiveLists(),
   };
-  console.log(data.shopping_lists);
+  console.log(data.shopping_lists.rows);
   return new Response(await renderFile("lists.eta", data), responseDetails);
 };
 

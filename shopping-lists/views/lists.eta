@@ -12,7 +12,7 @@
 <h2>Active lists</h2>
 
 <ul>
-<% it.shopping_lists.forEach((list) => { %>
+<% it.shopping_lists.rows.forEach((list) => { %>
   <li>
     <a href="/lists/<%= list.id %>"><%= list.name %></a>
 
