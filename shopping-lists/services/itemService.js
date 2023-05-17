@@ -8,6 +8,7 @@ const create = async (name, shoppingListId) => {
 };
 
 const findAllItems = async (shoppingListId) => {
+  console.log("id: " + shoppingListId);
     const notCollected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = false AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
     {shopping_list_id: shoppingListId},
     );
