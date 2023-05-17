@@ -1,1 +1,0 @@
-insert into shopping_lists (ID, NAME) values (1, 'Axel');
