@@ -15,7 +15,7 @@ const findAllItems = async (shoppingListId) => {
     const collected = await executeQuery("SELECT * FROM shopping_list_items WHERE collected = true AND shopping_list_id = $shoppingListId ORDER BY name ASC;",
     {shopping_list_id: shoppingListId},
     );
-    console.log("nc + c: " + notCollected[0] + collected[0]);
+    console.log("nc + c: " + notCollected.rows + collected.rows);
     return { listId: shoppingListId, nonCollected: notCollected, collected: collected };
 };
 
