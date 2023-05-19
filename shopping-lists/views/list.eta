@@ -1,6 +1,8 @@
 <% layout("./layouts/layout.eta") %>
 
-<h3><a href="/lists"> <-Shopping lists</a></h3>
+<h4><a href="/lists"> <-Shopping lists</a></h3>
+
+<h2><%= it.list_name.rows %></h2>
 
 <h2>Add an item</h2>
 

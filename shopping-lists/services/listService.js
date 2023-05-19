@@ -12,6 +12,12 @@ const deactivateList = async (id) => {
   );
 };
 
+const getListName = async (id) => {
+  await executeQuery("SELECT name FROM shopping_lists WHERE id = $id;",
+  {id: id},
+  );
+};
+
 const findAllActiveLists = async () => {
   return await executeQuery("SELECT * FROM shopping_lists WHERE active = true;");
 };
@@ -26,4 +32,4 @@ const countAllLists = async () => {
   }
 }
 
-export { create, deactivateList, findAllActiveLists, countAllLists }; 
+export { create, deactivateList, findAllActiveLists, getListName, countAllLists }; 
