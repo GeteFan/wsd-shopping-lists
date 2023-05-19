@@ -38,7 +38,7 @@ const viewListItems = async (request) => {
 
     const data = {
         list_items: await itemService.findAllItems(listId),
-        list_name: await listService.getListName(listId),
+        list_name: await listService.getListName(listId).rows[0].name,
     };
     console.log("items");
     console.log(data.list_items.nonCollected);
