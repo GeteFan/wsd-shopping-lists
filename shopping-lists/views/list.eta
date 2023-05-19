@@ -2,7 +2,7 @@
 
 <h4><a href="/lists"> <-Shopping lists</a></h3>
 
-<h1><%= it.list_name %></h1>
+<h1><%= it.list_name.rows[0].name %></h1>
 
 <h2>Add an item</h2>
 
