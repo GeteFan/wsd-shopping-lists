@@ -38,12 +38,12 @@ const viewListItems = async (request) => {
 
     const data = {
         list_items: await itemService.findAllItems(listId),
-        list_name: await listService.getListName(listId).rows[0].name,
+        list_name: await listService.getListName(listId),
     };
     console.log("items");
     console.log(data.list_items.nonCollected);
     console.log(data.list_items.collected);
-    console.log(data.list_name);
+    console.log(data.list_name.rows[0]);
     return new Response(await renderFile("list.eta", data), responseDetails);
 };
 
