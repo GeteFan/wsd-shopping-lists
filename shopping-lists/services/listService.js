@@ -13,7 +13,7 @@ const deactivateList = async (id) => {
 };
 
 const getListName = async (id) => {
-  await executeQuery("SELECT name FROM shopping_lists WHERE id = $id;",
+  return await executeQuery("SELECT name FROM shopping_lists WHERE id = $id;",
   {id: id},
   );
 };
