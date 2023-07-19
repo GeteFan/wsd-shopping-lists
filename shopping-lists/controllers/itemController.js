@@ -24,11 +24,11 @@ const collectItem = async (request) => {
     const url = new URL(request.url);
     const urlParts = url.pathname.split("/");
     const listId = urlParts[2];
-    const itemId = urlParts[3];
+    const itemId = urlParts[4];
 
     await itemService.collectItem(itemId);
   
-    return requestUtils.redirectTo(`/lists/${ listId }`);
+    return requestUtils.redirectTo(`/lists/${listId}`);
 };
 
 const viewListItems = async (request) => {
