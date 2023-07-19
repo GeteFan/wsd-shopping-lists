@@ -23,7 +23,7 @@ const countAllItems = async () => {
     if (result == undefined || result < 1) {
       return 0;
     } else {
-      return `Shopping lists: ${result}`;
+      return `Shopping lists items: ${result}`;
     }
 }
 
