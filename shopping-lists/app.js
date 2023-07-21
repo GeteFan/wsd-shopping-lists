@@ -25,7 +25,6 @@ const handleRequest = async (request) => {
     console.log("collect");
     return await itemController.collectItem(request);
   } else if (url.pathname.match("lists/[0-9]+/items" ) && request.method === "POST") {
-    console.log("addItem");
     return await itemController.addItem(request);
   } else {
     return new Response("Not found", { status: 404 });

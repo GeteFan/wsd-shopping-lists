@@ -7,10 +7,7 @@
   <li> 
     <%= it.shopping_lists %>
   </li>
-
-  <% if(it.list_items != 0 ) { %>
-    <li> 
-      <%= it.list_items %>
-    </li>
-  <% }; %>
+  <li> 
+    <%= it.list_items %>
+  </li>
 </ul>

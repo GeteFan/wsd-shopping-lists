@@ -7,6 +7,7 @@ const DATABASE_URL = "postgres://roman_moroz_wsd_shopping_lists_oaks_user:yH4DLm
 const CONCURRENT_CONNECTIONS = 3;
 const connectionPool = new Pool(DATABASE_URL, CONCURRENT_CONNECTIONS);
 
+
 const executeQuery = async (query, params) => {
   const response = {};
   let client;
